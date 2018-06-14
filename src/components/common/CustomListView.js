@@ -26,4 +26,4 @@ class CustomListView extends Component {
     }
 }
 
-export default CustomListView;
+export { CustomListView };
