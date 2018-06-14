@@ -1,11 +1,13 @@
-export const colors = {
-    darkBlue: '#0077B5',
-    mediumBlue: '#0077A0',
-    lightBlue: '#F2F6F8',
-    black: '#000000',
-    white: '#FFFFFF',
-    darkGray: '#313335',
-    mediumGray: '#86888A',
-    lightGray: '#CACCCE',
-    whiteGray: '#F5F5F5',
+export const COLORS = {
+    DARK_BLUE: '#0077B5',
+    MEDIUM_BLUE: '#0077A0',
+    LIGHT_BLUE: '#F2F6F8',
+    BLACK: '#000000',
+    WHITE: '#FFFFFF',
+    DARK_GREY: '#313335',
+    MEDIUM_GREY: '#86888A',
+    LIGHT_GREY: '#CACCCE',
+    WHITE_GREY: '#F5F5F5',
 }
+
+export const HEADER_HEIGHT = 60

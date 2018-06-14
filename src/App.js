@@ -6,8 +6,7 @@ import {
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import { Header } from './components/common/Header';
-
-
+import { COLORS } from './resources/constants';
 
 export default class App extends Component {
 
@@ -29,7 +28,7 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   mainStyle: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
+    backgroundColor: COLORS.MEDIUM_BLUE,
   },
   contentStyle: {
     justifyContent: 'center',

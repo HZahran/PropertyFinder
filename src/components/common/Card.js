@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import { COLORS } from '../../resources/constants';
 
 const Card = ({ children }) => {
     const { viewStyle } = styles;
@@ -13,7 +14,7 @@ const Card = ({ children }) => {
 
 const styles = StyleSheet.create({
     viewStyle: {
-        backgroundColor: '#FFF',
+        backgroundColor: COLORS.LIGHT_GREY,
         justifyContent: 'center',
         alignItems: 'center',
         height: 60,

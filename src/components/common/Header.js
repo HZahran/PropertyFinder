@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
+import { COLORS, HEADER_HEIGHT } from '../../resources/constants';
 
 const Header = ({ title }) => {
     const { textStyle, viewStyle } = styles;
@@ -13,10 +14,10 @@ const Header = ({ title }) => {
 
 const styles = StyleSheet.create({
     viewStyle: {
-        backgroundColor: '#F8F8F8',
+        backgroundColor: COLORS.WHITE_GREY,
         justifyContent: 'center',
         alignItems: 'center',
-        height: 60,
+        height: HEADER_HEIGHT,
         shadowOpacity: 0.2,
         elevation: 3,
     },
