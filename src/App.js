@@ -5,8 +5,10 @@ import {
 } from 'react-native';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import { Header } from './components/common/Header';
+import { Header } from './components/common';
 import { COLORS } from './resources/constants';
+import { PropertyList } from './components/property/PropertyList';
+import mockData from '../__mocks__/property-list.json'
 
 export default class App extends Component {
 
@@ -18,6 +20,7 @@ export default class App extends Component {
         <View style={mainStyle}>
           <Header title={'Property Finder'} />
           <View style={contentStyle}>
+            <PropertyList data={mockData} />
           </View>
         </View>
       </Provider>
