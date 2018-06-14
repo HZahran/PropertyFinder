@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   StyleSheet,
@@ -11,15 +5,21 @@ import {
 } from 'react-native';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
+import { Header } from './components/common/Header';
 
 
 
 export default class App extends Component {
+
   render() {
+    const { mainStyle, contentStyle } = styles;
+
     return (
       <Provider store={createStore}>
-        <View style={styles.container}>
-
+        <View style={mainStyle}>
+          <Header title={'Property Finder'} />
+          <View style={contentStyle}>
+          </View>
         </View>
       </Provider>
     );
@@ -27,20 +27,12 @@ export default class App extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  mainStyle: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  contentStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
