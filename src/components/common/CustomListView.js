@@ -11,16 +11,23 @@ class CustomListView extends Component {
         });
 
         // Add it to the initial state
-        this.state.dataSource = ds.cloneWithRows(props.data);
+        this.state = {
+            dataSource: ds.cloneWithRows(props.data)
+        }
+    }
+
+    renderRow = (data) => {
+        const { listItemView } = this.props
+
+        return React.createElement(listItemView, { ...data })
     }
 
     render() {
-        const { listItemView } = this.props
         const { dataSource } = this.state
         return (
             <ListView
                 dataSource={dataSource}
-                renderRow={listItemView}
+                renderRow={this.renderRow}
             />
         );
     }
