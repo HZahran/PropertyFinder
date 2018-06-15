@@ -16,7 +16,7 @@ const PropertyListItem = ({ id, title, subject, thumbnail, price, currency, loca
             </Text>
             <Image style={thumbnailStyle} source={{ uri: thumbnail }} />
             <Text style={priceStyle}>
-                {currency + price}
+                {`${currency} ${price}`}
             </Text>
             <Text style={locationStyle}>
                 {location}
@@ -28,23 +28,34 @@ const PropertyListItem = ({ id, title, subject, thumbnail, price, currency, loca
 
 const styles = StyleSheet.create({
     containerStyle: {
+        alignItems: 'center',
+        paddingTop: 10,
+        paddingBottom: 10,
     },
     titleStyle: {
         textAlign: 'center',
         fontSize: 20,
         fontWeight: 'bold',
+        marginTop: 5,
+        marginBottom: 5,
     },
     subjectStyle: {
-
+        textAlign: 'center',
+        marginBottom: 10,
     },
     thumbnailStyle: {
         width: 300,
         height: 300
     },
     priceStyle: {
-
+        textAlign: 'center',
+        fontSize: 18,
+        fontWeight: 'bold',
+        marginTop: 5,
+        marginBottom: 5,
     },
     locationStyle: {
+        textAlign: 'center',
 
     }
 

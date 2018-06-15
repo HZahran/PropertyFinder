@@ -15,7 +15,7 @@ const Card = ({ children, customStyle }) => {
 const styles = StyleSheet.create({
     viewStyle: {
         backgroundColor: COLORS.WHITE_GREY,
-        width: 300,
+        width: 350,
         elevation: 2,
         marginLeft: 5,
         marginRight: 5,

@@ -18,7 +18,6 @@ export default class App extends Component {
   render() {
     const { mainStyle, contentStyle } = styles;
 
-
     return (
       <Provider store={store}>
         <View style={mainStyle}>
@@ -35,7 +34,7 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   mainStyle: {
     flex: 1,
-    backgroundColor: COLORS.MEDIUM_BLUE,
+    backgroundColor: COLORS.LIGHT_BLUE,
   },
   contentStyle: {
     justifyContent: 'center',
