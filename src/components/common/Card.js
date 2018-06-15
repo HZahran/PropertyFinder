@@ -1,14 +1,16 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import { COLORS } from '../../resources/constants';
 
-const Card = ({ children, customStyle }) => {
+const Card = ({ children, customStyle, handlePress }) => {
     const { viewStyle } = styles;
 
     return (
-        <View style={[viewStyle, customStyle]}>
+        <TouchableOpacity
+            style={[viewStyle, customStyle]}
+            onPress={handlePress}>
             {children}
-        </View>
+        </TouchableOpacity>
     );
 };
 

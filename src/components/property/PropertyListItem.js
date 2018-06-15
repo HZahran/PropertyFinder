@@ -3,11 +3,14 @@ import { Text, View, Image, StyleSheet } from 'react-native';
 import { COLORS } from '../../resources/constants';
 import { Card } from '../common';
 
-const PropertyListItem = ({ id, title, subject, thumbnail, price, currency, location }) => {
+const PropertyListItem = (props) => {
+    const { id, title, subject, thumbnail, price, currency, location, selectPropertyItem } = props
     const { containerStyle, titleStyle, subjectStyle, thumbnailStyle, priceStyle, locationStyle } = styles;
 
     return (
-        <Card key={id} customStyle={containerStyle}>
+        <Card key={'List Item' + id}
+            customStyle={containerStyle}
+            handlePress={selectPropertyItem}>
             <Text style={titleStyle}>
                 {title}
             </Text>

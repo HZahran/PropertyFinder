@@ -1,5 +1,5 @@
-import { FETCH_PROPERTY_LIST, FETCH_PROPERTY_LIST_SUCCESS, SORT_BY, NEXT_PAGE, PREVIOUS_PAGE } from './types';
-import api from '../utils/api';
+import { FETCH_PROPERTY_LIST, FETCH_PROPERTY_LIST_SUCCESS, SORT_BY, NEXT_PAGE, PREVIOUS_PAGE, SELECT_PROPERTY_ITEM, PRESS_BACK_BUTTON } from './types';
+import api from '../config/api';
 import { SORTING } from '../resources/constants';
 
 export const fetchPropertyList = (page, order) => {
@@ -81,3 +81,17 @@ export const previousPage = () => {
         dispatch(fetchPropertyList(newPage, sortedBy))
     }
 }
+
+export const selectPropertyItem = (selectedIndex) => {
+    return {
+        type: SELECT_PROPERTY_ITEM,
+        payload: selectedIndex
+    }
+}
+
+
+export const backButtonPress = () => {
+    return { type: PRESS_BACK_BUTTON }
+}
+
+

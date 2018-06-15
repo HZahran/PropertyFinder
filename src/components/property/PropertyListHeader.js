@@ -1,8 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet, TouchableHighlight } from 'react-native';
-import { CustomListView } from '../common';
+import { Button, CustomListView } from '../common';
 import { PropertyListItem } from './PropertyListItem';
-import { Button } from '../common/Button';
 
 const PropertyListHeader = ({ sortByPrice, sortByBedrooms, sortedBy, nextPage, previousPage, currentPage }) => {
     const { containerStyle } = styles;

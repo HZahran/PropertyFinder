@@ -1,8 +1,8 @@
-import { FETCH_PROPERTY_LIST, FETCH_PROPERTY_LIST_SUCCESS } from '../actions/types';
+import { FETCH_PROPERTY_LIST, FETCH_PROPERTY_LIST_SUCCESS, SELECT_PROPERTY_ITEM, PRESS_BACK_BUTTON } from '../actions/types';
 
 const INITIAL_STATE = {
     isLoading: false,
-    propertyListData: []
+    propertyListData: [],
 }
 
 export default (state = INITIAL_STATE, action) => {

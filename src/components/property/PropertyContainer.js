@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { PropertyList } from './PropertyList';
-import { fetchPropertyList, sortByPrice, sortByBedrooms, nextPage, previousPage } from '../../actions';
-import { View } from 'react-native';
-import { PropertyListHeader } from './PropertyListHeader';
+import { fetchPropertyList, sortByPrice, sortByBedrooms, nextPage, previousPage, selectPropertyItem, backButtonPress } from '../../actions';
+import { View, StyleSheet } from 'react-native';
+import { PropertyHome, PropertyDetails } from './index';
+// import { PropertyRouter } from '../../config/routes';
 
 class PropertyContainer extends Component {
+
     componentDidMount() {
         const { fetchPropertyList } = this.props
 
@@ -14,30 +15,39 @@ class PropertyContainer extends Component {
     }
 
     render() {
-        const { propertyListData, ...rest } = this.props
-        return (
-            <View>
-                <PropertyListHeader {...rest} />
-                <PropertyList data={propertyListData} />
-            </View>
-        )
+        const { propertyListData, backButtonPress, selectedIndex, selectPropertyItem } = this.props
+
+        newListData = propertyListData.map((row, index) => ({ ...row, selectPropertyItem: selectPropertyItem(index) }))
+
+        if (selectedIndex === -1)
+            return <PropertyHome {...this.props} propertyListData={newListData} />
+        else
+            return <PropertyDetails {...newListData[selectedIndex]} backButtonPress={backButtonPress} />
+        // <PropertyRouter screenProps={this.props} />
     }
 }
 
-const mapStateToProps = ({ propertyListReducer, pageReducer }) => {
+const mapStateToProps = ({ propertyListReducer, pageReducer, sortReducer, selectionReducer }) => {
     return {
         propertyListData: propertyListReducer.propertyListData,
-        currentPage: pageReducer.currentPage
+        selectedIndex: selectionReducer.selectedIndex,
+        currentPage: pageReducer.currentPage,
+        selectedBy: sortReducer.selectedBy
     }
 }
 
-const mapDispatchToProps = {
-    fetchPropertyList,
-    sortByPrice,
-    sortByBedrooms,
-    nextPage,
-    previousPage
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchPropertyList: (page, order) => dispatch(fetchPropertyList(page, order)),
+        sortByPrice: () => dispatch(sortByPrice()),
+        sortByBedrooms: () => dispatch(sortByBedrooms()),
+        nextPage: () => dispatch(nextPage()),
+        previousPage: () => dispatch(previousPage()),
+        selectPropertyItem: (selectedIndex) => () => dispatch(selectPropertyItem(selectedIndex)),
+        backButtonPress: () => dispatch(backButtonPress()),
+    }
 }
+
 
 PropertyContainer = connect(mapStateToProps, mapDispatchToProps)(PropertyContainer);
 
