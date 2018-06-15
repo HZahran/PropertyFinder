@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropertyList } from './PropertyList';
-import { fetchPropertyList } from '../../actions';
+import { fetchPropertyList, sortByPrice, sortByBedrooms, nextPage, previousPage } from '../../actions';
 import { View } from 'react-native';
+import { PropertyListHeader } from './PropertyListHeader';
 
 class PropertyContainer extends Component {
     componentDidMount() {
@@ -13,9 +14,12 @@ class PropertyContainer extends Component {
     }
 
     render() {
-        const { propertyListData } = this.props
+        const { propertyListData, ...rest } = this.props
         return (
-            <PropertyList data={propertyListData} />
+            <View>
+                <PropertyListHeader {...rest} />
+                <PropertyList data={propertyListData} />
+            </View>
         )
     }
 }
@@ -27,10 +31,12 @@ const mapStateToProps = ({ propertyListReducer, pageReducer }) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchPropertyList: (page, order) => dispatch(fetchPropertyList(page, order))
-    }
+const mapDispatchToProps = {
+    fetchPropertyList,
+    sortByPrice,
+    sortByBedrooms,
+    nextPage,
+    previousPage
 }
 
 PropertyContainer = connect(mapStateToProps, mapDispatchToProps)(PropertyContainer);

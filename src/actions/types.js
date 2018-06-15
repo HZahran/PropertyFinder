@@ -5,3 +5,4 @@ export const PRESS_BACK_BUTTON = 'press_back_button'
 
 export const NEXT_PAGE = 'next_page'
 export const PREVIOUS_PAGE = 'previous_page'
+export const SORT_BY = 'SORT_BY'

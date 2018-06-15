@@ -7,9 +7,9 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case NEXT_PAGE:
-            return { ...state, currentPage: min(state.currentPage + 1, 2000) }
+            return { ...state, currentPage: action.payload }
         case PREVIOUS_PAGE:
-            return { ...state, currentPage: max(state.currentPage - 1, 0) }
+            return { ...state, currentPage: action.payload }
         default:
             return state
     }
