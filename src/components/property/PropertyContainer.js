@@ -1,18 +1,38 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropertyList from './PropertyList';
+import { PropertyList } from './PropertyList';
+import { fetchPropertyList } from '../../actions';
+import mockData from '../../../__mocks__/property-list.json'
+import { View } from 'react-native';
 
-const mapStateToProps = (state) => {
+class PropertyContainer extends Component {
+    componentDidMount() {
+        const { fetchPropertyList } = this.props
+
+        // Fetch the list of properties
+        fetchPropertyList(0, 'pd')
+    }
+
+    render() {
+        const { propertyListData } = this.props
+        return (
+            <PropertyList data={propertyListData} />
+        )
+    }
+}
+
+const mapStateToProps = ({ propertyListReducer }) => {
     return {
-        data: state.propertyListData
+        propertyListData: propertyListReducer.propertyListData
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-
+        fetchPropertyList: (page, order) => dispatch(fetchPropertyList(page, order))
     }
 }
 
-const PropertyContainer = connect(mapStateToProps, mapDispatchToProps)(PropertyList);
-export { PropertyContainer }
+PropertyContainer = connect(mapStateToProps, mapDispatchToProps)(PropertyContainer);
+
+export default PropertyContainer
