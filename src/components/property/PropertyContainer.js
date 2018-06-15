@@ -32,7 +32,7 @@ const mapStateToProps = ({ propertyListReducer, pageReducer, sortReducer, select
         propertyListData: propertyListReducer.propertyListData,
         selectedIndex: selectionReducer.selectedIndex,
         currentPage: pageReducer.currentPage,
-        selectedBy: sortReducer.selectedBy
+        sortedBy: sortReducer.sortedBy
     }
 }
 

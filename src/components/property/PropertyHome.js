@@ -5,7 +5,6 @@ import { PropertyList } from './PropertyList';
 
 const PropertyHome = ({ propertyListData, ...rest }) => {
     const { containerStyle } = styles;
-
     return (
         <View style={containerStyle}>
             <PropertyListHeader {...rest} />

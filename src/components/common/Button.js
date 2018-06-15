@@ -20,7 +20,7 @@ const Button = ({ text, handlePress }) => {
 
 const styles = StyleSheet.create({
     buttonStyle: {
-        backgroundColor: COLORS.WHITE_GREY,
+        backgroundColor: 'transparent',
         elevation: 2,
         paddingLeft: 10,
         paddingRight: 10,

@@ -6,9 +6,7 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case NEXT_PAGE:
-            return { ...state, currentPage: action.payload }
-        case PREVIOUS_PAGE:
+        case NEXT_PAGE: case PREVIOUS_PAGE:
             return { ...state, currentPage: action.payload }
         default:
             return state
