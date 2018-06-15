@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropertyList } from './PropertyList';
 import { fetchPropertyList } from '../../actions';
-import mockData from '../../../__mocks__/property-list.json'
 import { View } from 'react-native';
 
 class PropertyContainer extends Component {
@@ -21,9 +20,10 @@ class PropertyContainer extends Component {
     }
 }
 
-const mapStateToProps = ({ propertyListReducer }) => {
+const mapStateToProps = ({ propertyListReducer, pageReducer }) => {
     return {
-        propertyListData: propertyListReducer.propertyListData
+        propertyListData: propertyListReducer.propertyListData,
+        currentPage: pageReducer.currentPage
     }
 }
 

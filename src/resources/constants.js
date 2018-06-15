@@ -11,3 +11,10 @@ export const COLORS = {
 }
 
 export const HEADER_HEIGHT = 60
+
+export const SORT_BY = {
+    PRICE_ASC: 'pa',
+    PRICE_DESC: 'pd',
+    BEDROOMS_ASC: 'ba',
+    BEDROOMS_DESC: 'bd'
+}
