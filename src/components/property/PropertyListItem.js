@@ -1,22 +1,29 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { COLORS } from '../../resources/constants';
+import { Card } from '../common';
 
 const PropertyListItem = ({ title }) => {
-    const { textStyle, viewStyle } = styles;
+    const { containerStyle, titleStyle } = styles;
 
     return (
-        <View>
-            <Text>
+        <Card customStyle={containerStyle}>
+            <Text style={titleStyle}>
                 {title}
             </Text>
-        </View>
+        </Card>
     )
 };
 
 
 const styles = StyleSheet.create({
-
+    containerStyle: {
+    },
+    titleStyle: {
+        textAlign: 'center',
+        fontSize: 20,
+        fontWeight: 'bold',
+    }
 });
 
 export { PropertyListItem };
